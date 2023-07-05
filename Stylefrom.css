@@ -1,0 +1,22 @@
+body {
+	background: url("images/BgU.png");
+	direction: rtl;
+	background-repeat: repeat-x;
+	font-family: arial;
+	color: #000000;
+	text-align: right;
+	margin-top: 0px;
+	font-size: 12px;
+}
+
+.from {
+	font-family: Arial;
+	font-size: 11px;
+	color: #607e8e;
+	background-color: white;
+	vertical-align: middle;
+	border-right: 1px solid #d1d1d1;
+	border-left: 1px solid #f7f7f7;
+	border-top: 1px solid #efefef;
+	border-bottom: 1px solid #b6b6b6;
+}

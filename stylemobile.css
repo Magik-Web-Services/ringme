@@ -1,0 +1,1039 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10UxCF8jA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10dxCF8jA.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10VxCF8jA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10axCF8jA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* hebrew */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10bxCF8jA.woff2) format('woff2');
+  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10WxCF8jA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10XxCF8jA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10ZxCE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10UxCF8jA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10dxCF8jA.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10VxCF8jA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10axCF8jA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* hebrew */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10bxCF8jA.woff2) format('woff2');
+  unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10WxCF8jA.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10XxCF8jA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Arimo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/arimo/v27/P5sMzZCDf9_T_10ZxCE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #390F63;
+}
+
+html {
+  font-size: 10px;
+  direction: rtl;
+  font-family: 'Arimo', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  padding-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: #22093b;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  line-height: 22px;
+}
+
+
+.whatsapp {
+  position: fixed;
+  opacity: 0;
+}
+
+
+.to-page-top {
+  position: fixed;
+  bottom: 13%;
+  right: 5%;
+  z-index: 999;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: #511e83;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.to-page-top.show {
+  opacity: .5;
+}
+
+.to-page-top.show:hover {
+  opacity: .7;
+}
+
+.to-page-top img {
+  height: 50px;
+}
+/* 
+  INDEX
+*/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  background-image: url(./img/BgA.png);
+  background-color: white;
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
+  z-index: 9999;
+  padding: 10px 50px;
+  width: 100%;
+  box-shadow: 0px 2px 9px 3px #d0adf24f;
+  opacity: .90;
+}
+
+.sub-header {
+  width: 100%;
+  padding: 15px 50px;
+  height: 50px;
+}
+
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-menu>* {
+  margin: 0px 20px;
+  word-wrap: normal;
+}
+
+.header-menu img {
+  height: 18px;
+}
+
+
+.header-menu-item {
+  color: #533e67;
+  cursor: pointer;
+}
+
+.artists-category-bar {
+  width: 100%;
+  position: fixed;
+  display: none;
+}
+
+/* handle dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+    z-index: 999999!important;
+}
+
+.dropdown .text {
+  display: flex;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 999;
+  pointer-events: all;
+}
+
+.dropdown-content.menu {
+  margin-right: -230%;
+}
+
+.dropdown-content.artists {
+  min-width: 300px;
+}
+
+.dropdown:hover .dropdown-content.artists{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content.artists .dropdown-item {
+  padding: 10px;
+  transition: all .1s ease;
+}
+
+.dropdown-content .dropdown-item::before {
+  content: "\A";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #a048f8;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.dropdown-item {
+  padding: 10px 5px;
+  cursor: pointer;
+}
+
+.dropdown-item a {
+  transition: all .1s ease;
+}
+
+
+.dropdown-item:hover,
+.dropdown-item:hover a {
+  color: #a048f8;
+}
+
+.dropdown-content.open {
+  overflow-y: auto !important;
+  max-height: 370px !important;
+}
+
+.dropdown-content.artists::before {
+  content: "גללו למטה כדי לראות את כל האמנים";
+  width: 100%;
+  font-size: 1.3rem;
+  margin: 1rem;
+  color: #a048f8;
+}
+
+.ask-for-ringtone {
+  color: #73aacf;
+}
+
+main {
+  padding: 130px 50px 0px 50px;
+  margin: 0 auto;
+  text-align: center;
+
+  max-width: 1200px;
+  width: 100%;
+}
+
+.ad {
+  width: 100%;
+  height: 80px;
+  margin: 40px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  color: black;
+}
+
+.ad.ringtonePage {
+  display: none;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 10px auto;
+  padding: 15px 10px;
+  border: 2px solid #A475D2;
+  border-radius: 20px;
+  transition: all .2s ease;
+}
+
+.search.focused {
+  border-color: rgb(143, 79, 207);
+  transform: scale(1.1);
+}
+
+.search-input {
+  border: none;
+  font-size: 2rem;
+  margin: 0px 10px;
+  color: #533e67;
+}
+
+.search .search-input:focus {
+  outline: none;
+  border-color: black;
+}
+
+.search-input::placeholder {
+  color: #A475D2;
+}
+
+.hot-and-new {
+margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.hot-and-new>* {
+  width: 45%;
+}
+
+.hottest .headline,
+.newest .headline {
+  display: flex;
+  align-items: center;
+}
+
+.hottest .headline>div,
+.newest .headline>div {
+  margin: 0px 10px;
+  color: #390F63;
+}
+
+.ringtone-headline {
+  font-size: 2.5rem;
+}
+
+.ringtone {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px 0px rgba(49, 4, 94, 0.24);
+  transition: all .15s ease;
+}
+
+.ringtone:hover {
+  transform: scale(1.1);
+}
+
+.ringtone .number-and-artist {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.number-and-artist .number {
+  margin-left: 20px;
+    font-size: 15px;
+}
+
+.ringtone a.link-to-ringtone {
+  position: absolute;
+  width: 73%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.ringtone .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ringtone .text .song {
+  font-size: 2rem;
+  color: #390F63;
+}
+
+.ringtone .text .artist {
+  color: #390F63;
+  font-weight: bold;
+}
+
+.ringtone .icons {
+  display: flex;
+  align-items: center;
+  width: 25%;
+  justify-content: flex-end;
+}
+
+.ringtone .icons img {
+  height: 25px;
+  margin: 0px 5px;
+}
+
+.ringtone .play {
+  cursor: pointer;
+}
+
+.welcome {
+  margin: 50px 0;
+  text-align: start;
+}
+
+.welcome h2 {
+  margin-bottom: 10px;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+  text-align: start;
+  padding-top: 15px;
+  margin-top: 40px;
+}
+
+
+
+
+.bigtv {
+width: 25%;
+height: 25%;
+}
+
+
+/* 
+  RINGTONE PAGE
+*/
+
+/* Style the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  text-align: start;
+  background-color: #f0f0f5;
+  border-radius:10px;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #22093b;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #501e83;
+  text-decoration: underline;
+}
+
+.audio-and-chorusno {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 60px auto;
+  max-width: 800px;
+}
+
+.audio-and-chorus {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 60px auto;
+  max-width: 800px;
+  vertical-align: middle;
+}
+
+.sticky-player {
+  position: sticky;
+  display: inline-block;
+  vertical-align: middle;
+  top: 100px;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 850px) {
+    .sticky-player {
+        margin-right: 10vw;
+        top: 88px;
+    }
+}
+
+audio {
+  margin: 40px 0px;
+}
+
+.chorus {
+  position: relative;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.chorus p:before {
+  position: absolute;
+  right: 0;
+  content: '\201D';
+  color: #a048f8;
+  font-size: 14rem;
+  opacity: .3;
+  vertical-align: middle;
+}
+
+.chorus p:after {
+  position: absolute;
+  left: 0;
+  bottom: -37px;
+  content: '\201C';
+  color: #a048f8;
+  font-size: 14rem;
+  opacity: .3;
+  vertical-align: middle;
+}
+
+.chorus p {
+  display: unset;
+  background: linear-gradient(to left, #fff8b6 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position:left bottom;
+  transition:all 2s ease;
+}
+
+.chorus p.highlight {
+  background-position:right bottom;
+}
+
+.more-ringtons-by-artist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 60px 0;
+}
+
+.more-ringtons-by-artist-container h2 {
+  margin-bottom: 5px;
+}
+
+.more-ringtons-by-artist {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.more-ringtones {
+  margin: 3px;
+  font-size: 1.3rem;
+  background-color: #a179c7;
+  padding: 7px 10px;
+  border-radius: 15px;
+}
+
+.more-ringtones:hover {
+  background-color: #a347ff;
+  transform: scale(1.1);
+}
+
+.more-ringtones > a {
+  color: white;
+}
+
+.action-buttons {
+  margin: 80px 0;
+}
+
+.action-buttons .inner {
+  margin: 0 auto;
+  display: none;
+  justify-content: space-between;
+  max-width: 900px;
+}
+
+.action-btn {
+  padding: 1.3rem 3.5rem;
+  font-size: 2rem;
+  background-color:#933beb;
+  box-shadow: 12px 12px 24px #a061df52;  
+  color: white;
+  border-radius: 10px;
+  transition: all .2s ease;
+}
+
+.action-btn:hover {
+  background-color: #a347ff;
+  transform: scale(1.1);
+}
+
+/* ARTIST */
+.artistName, .categoryName {
+  text-align: start;
+  margin-top: 23px;
+}
+
+.artistName h1, .categoryName h1 {
+  transform: rotate(10deg);
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-block;
+  padding: 1rem 3rem;
+  color: white;
+  background-color: #a977d6;
+}
+
+.artist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.artist-container h2 {
+  text-align: start;
+  margin-top: 20px;
+}
+
+.aboutArtist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  box-shadow: 02px 5px 20px 02px rgba(49, 4, 94, 0.24);
+}
+
+.aboutArtist div.artistImage {
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px 0px rgba(49, 4, 94, 0.24);
+  height: 50vw;
+  width: 50vw;
+  max-width: 200px;
+  max-height: 200px;
+  margin-bottom: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.artist-container > div {
+  margin:20px;
+}
+
+.aboutArtist .text {
+  padding: 1rem 4rem;
+}
+
+.ringtones-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.ringtones-list .ringtone {
+  width: 48%;
+}
+
+/* CATEGORY */
+.categoryName {
+  margin-bottom: 50px;
+}
+
+.categoryName ~ h2 {
+  text-align: start;
+}
+
+/* ask for rington */
+.askForRingtone-form {
+  display: flex;
+  flex-direction: column;
+
+  margin: 50px auto;
+}
+
+.askForRingtone-input {
+  font-size: 2rem;
+  padding: 2rem;
+  width: 60%;
+  margin: 20px auto;
+  box-shadow: 0px 5px 10px 0px rgba(49, 4, 94, 0.24);
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+.askForRingtone-submit {
+  font-size: 2rem;
+  padding: 2rem;
+  cursor: pointer;
+  background-color: #933beb;
+  box-shadow: 12px 12px 24px #a061df52;  
+  color: white;
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  outline: none;
+}
+
+/* results */
+h2.results {
+  text-align: start;
+  margin-top: 20px;
+}
+/* utilities */
+.bold {
+  font-weight: bold;
+}
+
+/* pagination */
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: right;
+  padding: 10px 18px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+  margin-top: 10px;
+  border-radius: 100px !important;
+  box-shadow: 4px 4px 10px #a061df52;
+}
+
+.pagination a.active {
+  background-color: #a475d2;
+  color: white;
+  border: 1px solid #533e67;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+
+/*  mobile view */
+@media only screen and (max-width: 850px) {
+
+
+.bigtv {
+width: 100%;
+height: 100%;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20%;
+  right: 5%;
+  z-index: 999;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: #511e83;
+  border-radius: 90%;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.whatsapp.show {
+  opacity: .8;
+}
+
+.whatsapp.show:hover {
+  opacity: .9;
+}
+
+.whatsapp img {
+  height: 50px;
+}
+
+
+  .header {
+    padding: 8px;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-menu {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .header-menu>* {
+    margin: 7px;
+  }
+
+  .text img {
+    height: 15px;
+  }
+
+  .logo img {
+    height: 70px;
+    width: auto;
+  }
+
+  main {
+    padding: 145px 10px 0px 10px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  .search {
+    width: 85%;
+    padding: 10px;
+  }
+
+  .hottest,
+  .newest {
+    width: 100%;
+  }
+
+  .newest {
+    margin-top: 50px;
+  }
+
+  .ringtone {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 90%;
+  }
+
+  .dropdown-content:not(.open) {
+    display: none !important;
+  }
+
+  .ringtone-headline {
+    font-size: 2.5rem;
+  }
+
+.sticky-player {
+  transform: scale(1.4);
+}
+
+.header-menu-item {
+    font-size: 1.8rem;
+}
+
+  .audio-and-chorus {
+    justify-content: center;
+  }
+
+  .action-buttons .inner {
+    flex-wrap: wrap;
+    justify-content: center
+  }
+
+  .action-buttons .inner a{
+    width: 100%;
+  }
+
+  .action-btn {
+    font-size: 1.7rem;
+    margin: 7px 0;
+    padding: 1.3rem;
+  }
+
+  .audio-and-chorus, .more-ringtons-by-artist-container, .action-buttons  {
+    margin: 40px 0;
+  }
+
+  .ad.ringtonePage {
+    display: flex;
+    margin: 0;
+    height: 55px;
+  }
+
+  /* artist page */
+  .aboutArtist {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+
+  .aboutArtist .text {
+    padding: 1rem;
+  }
+  
+  .artistName, .categoryName {
+    text-align: center;
+  }
+
+  /* ask for ringtone */
+  h1.ask-ringtone {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+  }
+
+  .askForRingtone-input {
+    font-size: 2rem;
+    padding: 2rem;
+    width: 60%;
+    margin: 20px auto;
+    box-shadow: 0px 5px 10px 0px rgba(49, 4, 94, 0.24);
+    border-radius: 20px;
+    border: 1px solid transparent;
+    outline: none;
+    }
+
+  .askForRingtone-submit {
+    width: 100%;
+    margin: 5px 0;
+    }
+
+    .ringtones-list .ringtone, .content .ringtone {
+      width: 95%;
+      margin: 10px auto;    
+    }
+
+    .artist-container > div {
+      margin:20px 0px;
+    }
+}
+
+.dropdown-content.artists
+{
+  max-height: 500px;
+  overflow: auto;
+}
+
+.secondss {
+font-size:1.4rem;
+color:#c4c2c2;
+}

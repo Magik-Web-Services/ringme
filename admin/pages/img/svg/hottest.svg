@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="65px" viewBox="0 0 48 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>fire-solid copy</title>
+    <desc>Created with Sketch.</desc>
+    <g id="ring.me" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="v1" transform="translate(-1323.000000, -835.000000)" fill="#D30000" fill-rule="nonzero">
+            <g id="Group-5" transform="translate(845.000000, 835.000000)">
+                <g id="Group-2" transform="translate(179.000000, 0.000000)">
+                    <g id="fire-solid-copy" transform="translate(299.000000, 0.000000)">
+                        <path d="M27,3.00587708 C27,0.00763860774 23.16875,-1.12236976 21.48125,1.36314474 C6,24.1686536 28,25.1953613 28,36.281285 C28,40.7698244 24.36125,44.4017242 19.89375,44.3425152 C15.4975,44.2858259 12,40.5921976 12,36.1616074 L12,25.3893649 C12,22.6556769 8.69125,21.3291454 6.82125,23.3107542 C3.475,26.8532108 0,32.9214943 0,40.31253 C0,53.6496521 10.76625,64.5 24,64.5 C37.23375,64.5 48,53.6496521 48,40.31253 C48,18.8600078 27,15.9990836 27,3.00587708 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

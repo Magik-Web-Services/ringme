@@ -1,0 +1,12 @@
+https://www.ringme.co.il/
+
+index.php - add isset, empty and change php tags
+send.php - add html and add isset, empty and change php tags and;
+pages/report.php - change php tags and add css file add conf file and;
+pages/howto.php - add conf file add css file and;
+pages/ringtones.php - add conf file add css file and style add footer html and;
+pages/youtube.php - add conf file add css file and style add footer html and;
+pages/bigbrother.php - add conf file add css file and style add footer html and;
+pages/bigbrother.php - add conf file add css file and style add footer html and;
+pages/cat.php - add conf file add css file and style add footer html and;
+pages/iphone.php - add conf file add css file and style add footer html and;

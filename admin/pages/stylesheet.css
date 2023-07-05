@@ -1,0 +1,147 @@
+BODY { color:black;font-family:Arial;font-size:11px;padding:0px;margin:0px;background-color: #00213f;background:url(bg.gif) repeat-x;}
+.MainManu {padding:0px;margin:0px;font-family:Arial;font-size:12px;font-weight:bold;color:#426186}
+.MainManu a:link, .MainManu a:visited, .MainManu a:active { text-decoration: none;color: #426186 }
+.MainManu a:hover { text-decoration: none;color: #1c3b5f; }
+
+a:link, a:visited, a:active { text-decoration: none;color: Gray }
+a:hover { text-decoration: none;color: Black; }
+
+.desc_article {font-family:Arial;font-size:11px;color:black}
+.desc_article a:link, .desc_article a:visited, .desc_article a:active { text-decoration: none;color: black }
+.desc_article a:hover { text-decoration: none;color: black; }
+
+.s_b {font-family:Arial;font-size:12px;color:blue}
+
+.SubManu {padding:0px;margin:0px;font-family:Arial;font-size:11px;color:White}
+.SubManu a:link, .SubManu a:visited, .SubManu a:active { text-decoration: none;color: #96a8cb }
+.SubManu a:hover { text-decoration: none;color: White; }
+
+.sub {background-color:#eff4f7;font-size:11px;color:#7998b3}
+
+.Title {padding:0px;margin:0px;font-family:Arial;font-size:12px;color:#00213f;vertical-align:middle;font-weight:bold;height:27px;width:136px;text-align:center;background:url(images/title.gif);}
+
+TABLE,TD,TR {font-family:Arial;font-size:11px}
+FORM {padding:0px;margin:0px;}
+.Search_R { background: #ffffff url(images/search_r.gif) top right;width:12px;height:52px; }
+.Search_M { background: #ffffff url(images/search_m.gif);height:52px;font-size:12px;font-weight:bold;color:#28638c }
+.Search_L { background: #ffffff url(images/search_l.gif) top left;width:13px;height:52px; }
+
+.C1 { border-left: .75pt solid #ececec;border-right: .75pt solid #ececec;padding: 4px;background-color: white; }
+
+.CATR { height:29px;width:9px;background: #FFFFFF url(images/cat_r.gif) repeat-x top right; }
+.CATL { height:29px;width:9px;background: #FFFFFF url(images/cat_l.gif) repeat-x top left; }
+.CAT { height:29px;background: #FFFFFF url(images/cat.gif);color:#053f70;font-size:12px;font-weight:bold }
+.CAT a:link, .CAT a:visited, .CAT a:active { text-decoration: none;color: #053f70 }
+.CAT a:hover { text-decoration: underline;color: #053f70; }
+
+.TableCat { background-color: #FFFFFF;color:Gray;font-family:Arial;font-size:12px;font-weight:bold; }
+.SubTableCat { background-color: #8c9ba8;color:#00213f;font-family:Arial;font-size:11px; }
+.SubTableCat a:link, .SubTableCat a:visited, .SubTableCat a:active { text-decoration: none;color: white }
+.SubTableCat a:hover { text-decoration: none;color: #00213f; }
+
+.ENDCATR { height:8px;background: #FFFFFF url(./images/end_cat_r.gif) repeat-x top right; }
+.ENDCATL { height:8px;background: #FFFFFF url(../images/end_cat_l.gif) repeat-x top left; }
+.ENDCAT { height:8px;background: #FFFFFF url(../images/end_cat.gif); }
+
+.STARTCATR { height:8px;background: #FFFFFF url(../images/start_cat_r.gif) repeat-x top right; }
+.STARTCATL { height:8px;background: #FFFFFF url(../images/start_cat_l.gif) repeat-x top left; }
+.STARTCAT { height:8px;background: #FFFFFF url(../images/start_cat.gif); }
+
+.CATitle {color:#286077;font-family:Arial;font-size:12px;font-weight:bold;text-align:center}
+.CAText {color:#4a7e94;font-family:Arial;font-size:11px;}
+.CAText a:link, .CAText a:visited, .CAText a:active { text-decoration: none;color: #4a7e94 }
+.CAText a:hover { text-decoration: none;color: #0c3f54; }
+
+.DownPage {width:746;background-color:#548cad;color:#c6d4dc;font-family:Arial;font-size:12px;text-align:center;font-weight:bold;padding:4px;}
+.DownPage a:link, .DownPage a:visited, .DownPage a:active { text-decoration: none;color: #c6d4dc }
+.DownPage a:hover { text-decoration: none;color: #FFFFFF; }
+
+.Copyright {height:36px;background: #FFFFFF url(images/copyright.jpg) repeat-x top;color:Gray;font-family:Arial;font-size:11px;}
+.Copyright a:link, .Copyright a:visited, .Copyright a:active { text-decoration: none;color: Black }
+.Copyright a:hover { text-decoration: none;color: Black; }
+
+.forminput_search {font-family:Arial;font-size:11px;color:Gray;background: #ffffff url(images/input.gif);border:1px inset #ececec}
+.forminput {font-family:Arial;border:1px solid #C9C9C9;font-size:11px;color:Black;vertical-align:middle}
+
+.ZimmerRight { height:69px;width:164px;background: #FFFFFF url(images/zimmer_r.gif); }
+.ZimmerLeft { height:69px;width:164;background: #FFFFFF url(images/zimmer_l.gif); }
+
+.Zimmer { text-align:center;height:69px;background: #FFFFFF url(images/zimmer.gif); background-position: top center;
+font-family: Arial;font-size: 16px;font-weight: bold;margin: 0px;padding: 0px;color: #463e2d;}
+
+
+
+
+.ringtone-headline {
+  font-size: 2rem;
+}
+
+.ringtone {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+
+  margin-top: 10px;
+  padding: 2rem;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px 0px rgba(49, 4, 94, 0.24);
+
+  transition: all .15s ease;
+}
+
+.ringtone:hover {
+  transform: scale(1.1);
+}
+
+.ringtone .number-and-artist {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.number-and-artist .number {
+  margin-left: 20px;
+}
+
+.ringtone a.link-to-ringtone {
+  position: absolute;
+  width: 73%;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+
+.ringtone .text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ringtone .text .song {
+  font-size: 2rem;
+  color: #390F63;
+}
+
+.ringtone .text .artist {
+  color: #390F63;
+  font-weight: bold;
+}
+
+
+.ringtone .icons {
+  display: flex;
+  align-items: center;
+  width: 25%;
+  justify-content: flex-end;
+}
+
+.ringtone .icons img {
+  height: 25px;
+  margin: 0px 5px;
+}
+
+.ringtone .play {
+  cursor: pointer;
+}
