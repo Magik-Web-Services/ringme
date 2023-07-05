@@ -10,7 +10,7 @@ include('../conf.php');
 <main>
 
   <?php
-  $ved = $_GET['v'];
+  $ved = (isset($_GET['v']) && !empty($_GET['v'])) ? $_GET['v'] : '';
   if ($ved == "") {
   ?>
     <br />

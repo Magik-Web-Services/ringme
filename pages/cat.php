@@ -34,8 +34,8 @@ if ($sendup == "0") {
     $catid = (isset($_GET['catid']) && !empty($_GET['catid'])) ? $_GET['catid'] : '5';
     $tes = mysqli_query($link, "SELECT `name` FROM `category` WHERE `id`='$catid'");
     $t = mysqli_fetch_array($tes);
-    if ($_GET['page'] != 0)
-      $urikas = " - עמוד " . $_GET['page'];
+    // if ($_GET['page'] != 0)
+      $urikas = " - עמוד ";
     $list = "רשימת הצלצולים" . $urikas;
     echo "<h1>" . $t['name'] . "</h1>";
     ?>
@@ -51,8 +51,8 @@ if ($sendup == "0") {
 
     <?php
     $limit = "50";
-    $cpage = intval($_GET['page']);
-    if (!$_GET['page'] || $_GET['page'] < 1)
+    $cpage =     (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '1';
+    // if (!$_GET['page'] || $_GET['page'] < 1)
       $cpage = 1;
     $t = mysqli_num_rows(mysqli_query($link, "SELECT id FROM `songs` WHERE `catid`='$catid' "));
     $p = $t / $limit;
@@ -62,7 +62,7 @@ if ($sendup == "0") {
     $i = ($cpage * $limit) - $limit;
     $res = mysqli_query($link, "SELECT * FROM `songs` WHERE `catid`='$catid' ORDER BY `id` DESC LIMIT $i,$limit ");
 
-    if ($_GET['page'] > $pages) {
+    if ($cpage > $pages) {
       header('Location: https://www.ringme.co.il');
     } else {
 
@@ -109,7 +109,7 @@ END;
           $count = 1;
           while ($count <= $pages) {
 
-            if ($count == $_GET['page']) {
+            if ($count == $cpage) {
               $echo = "<a href=\"index.php?act=cat&catid=$catid&page=$count\" class=\"active\"><font color=\"green\">$count</font></a>";
             } else {
               $echo = "<a href=\"index.php?act=cat&catid=$catid&page=$count\">$count</a>";

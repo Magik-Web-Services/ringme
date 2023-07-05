@@ -7,6 +7,7 @@ pages/howto.php - add conf file add css file and;
 pages/ringtones.php - add conf file add css file and style add footer html and;
 pages/youtube.php - add conf file add css file and style add footer html and;
 pages/bigbrother.php - add conf file add css file and style add footer html and;
-pages/bigbrother.php - add conf file add css file and style add footer html and;
+pages/singles.php - add conf file add css file and style add footer html and;
 pages/cat.php - add conf file add css file and style add footer html and;
 pages/iphone.php - add conf file add css file and style add footer html and;
+pages/tops.php - add conf file add css file and style add footer html and;
