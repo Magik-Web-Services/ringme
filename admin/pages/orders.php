@@ -143,7 +143,7 @@ END;
 		$users = $_SESSION["ad_user"];
 		mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
-		redirect_user("orders.php", "כל הבקשות נמחקו בהצלחה!");
+		// redirect_user("orders.php", "כל הבקשות נמחקו בהצלחה!");
 	}
 
 
@@ -158,7 +158,7 @@ END;
 		$users = $_SESSION["ad_user"];
 		mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
-		redirect_user("orders.php", "מספר הבקשות באתר אופס בהצלחה!");
+		// redirect_user("orders.php", "מספר הבקשות באתר אופס בהצלחה!");
 	}
 
 	function ordr_delete()

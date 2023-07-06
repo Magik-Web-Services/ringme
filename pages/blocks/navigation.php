@@ -1,6 +1,6 @@
 <div class="header">
     <div class="logo">
-        <a href="<?php echo MAIN_DIR; ?>">
+        <a href="<?php echo MAIN_DIR; ?>index.php">
             <img src="<?php echo MAIN_DIR ?>img/logo.png" alt="צלצולים">
         </a>
     </div>
@@ -87,7 +87,7 @@
 
             <div class="dropdown-content menu">
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>">
+                    <a href="<?php echo MAIN_DIR; ?>index.php">
                         צלצולים
                     </a>
                 </p>

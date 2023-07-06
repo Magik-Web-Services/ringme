@@ -562,10 +562,11 @@ END;
 
 
 			$limit = "5";
-			$cpage = intval($_GET['page']);
-			if (!$_GET['page'] || $_GET['page'] < 1)
+			$cpage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+			if (!$cpage || $cpage < 1)
 				$cpage = 1;
 			$t = mysqli_num_rows(mysqli_query($link, "SELECT * FROM `singers` WHERE `id` LIKE '%$id%' AND `name` LIKE '%$name%'"));
+			$ec = "";
 			if ($t == 0)
 				$ec = "<br /><font color='red'><b>אנא נסה מספר אחר</b></font>";
 			$p = $t / $limit;
@@ -573,16 +574,16 @@ END;
 			$npage = $cpage + 1;
 			$ppage = $cpage - 1;
 			$i = ($cpage * $limit) - $limit;
-			$res = mysqli_query($link, "SELECT * FROM `singers` WHERE `name` LIKE '%$name%' AND `id` LIKE '%$id%' ORDER BY `id` DESC LIMIT $i,$limit ");
+			$res = mysqli_query($link, "SELECT * FROM `songs` WHERE `name` LIKE '%$name%' AND `id` LIKE '%$id%' ORDER BY `id` DESC LIMIT $i,$limit ");
 			while ($r = mysqli_fetch_array($res)) {
-				if ($r['catid'] == 1) {
+				if ($r['id'] == 1) {
 					$cats = "מזרחית";
-				} else if ($r['catid'] == 2) {
+				} else if ($r['id'] == 2) {
 					$cats = "מזרחית רמיקס";
 				}
-				if ($r['catid'] == 3) {
+				if ($r['id'] == 3) {
 					$cats = "דיכאון";
-				} else if ($r['catid'] == 4) {
+				} else if ($r['id'] == 4) {
 					$cats = "שונות";
 				} else if ($r['catid'] == 5) {
 					$cats = "הבקשות שלכם";

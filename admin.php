@@ -178,7 +178,7 @@ END;
 
 function logout()
 {
-	session_destroy();
+	// session_destroy();
 	echo "<div align=\"center\">";
 	echo "ההתנתקות בוצעה בהצלחה!, אנה המתן...";
 	echo "<meta http-equiv=\"refresh\" content=\"3;url=admin.php\">";
