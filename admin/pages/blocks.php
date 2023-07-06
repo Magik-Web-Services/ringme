@@ -54,7 +54,7 @@ session_start();
 				$text[8] = $_POST['text8'];
 				$tes = mysqli_query($link, "SELECT `id` FROM `blocks` ORDER BY `id`");
 				for ($i = 1; $i <= mysqli_num_rows($tes); $i++) {
-					if ($i == 3) {
+					if ($i == 3 || $i == 7) {
 					} else {
 						mysqli_query($link, "UPDATE `blocks` SET `text` = '$text[$i]' WHERE `id` ='$i' ");
 					}

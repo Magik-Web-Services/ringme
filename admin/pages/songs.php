@@ -920,7 +920,7 @@ END;
 			$max_combined_size = "50000";
 
 			//כמה קבצים יהיה ניתן להעלות בהעלאה אחת?
-			$file_uploads = "30";
+			$file_uploads = "0";
 
 			//השם של מערכת האתר
 			$websitename = "ringme.co.il";
@@ -987,7 +987,7 @@ END;
 					$password_form .= "</form>\n";
 				}
 			}
-
+			$types = "";
 			// Function to get the extension a file.
 			function get_ext($key)
 			{
@@ -1014,13 +1014,13 @@ END;
 
 			$error = "";
 			$display_message = "";
-			$uploaded == false;
+			$uploaded = false;
 
 			// Dont allow post if $password_form has been populated
 			if ($_POST['submit'] == true and !$password_form) {
 
 				for ($i = 0; $i <= $file_uploads - 1; $i++) {
-
+					
 					if ($_FILES['file']['name'][$i]) {
 
 						$ext = get_ext($_FILES['file']['name'][$i]);

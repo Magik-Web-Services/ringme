@@ -165,7 +165,7 @@ language : 'he'
 		$users = $_SESSION["ad_user"];
 		mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
-		redirect_user("setoff.php", "הגדרות המערכת עודכנו בהצלחה!");
+		// redirect_user("setoff.php", "הגדרות המערכת עודכנו בהצלחה!");
 	}
 
 	?>

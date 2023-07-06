@@ -14,7 +14,7 @@ pages/iphone.php - add conf file add css file and style add footer html
 pages/tops.php - add conf file add css file and style add footer html
 admin/index.php - add session_start(); add conf file and change php tags add isset, empty
 admin/index.php - add conf file and change php tags
-admin/pages/blocks.php - add conf file and change php tags and remove functionss.php
+admin/pages/blocks.php - add conf file and change php tags and remove functionss.php and add if ($i == 3 || $i == 7)
 admin/pages/cats.php - add isset, empty add conf file and change php tags
 admin/pages/main.php - add isset, empty and change php tags 
 admin/pages/orders.php - add isset, empty and change php tags and remove functionss.php
