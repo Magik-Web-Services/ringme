@@ -16,10 +16,10 @@
             <div class="dropdown-content artists">
                 <?php $res = mysqli_query($link, "SELECT * FROM `singers`"); ?>
                 <?php while ($r = mysqli_fetch_array($res)) {
-                echo $r['id']
+                $id = $r['id']
                     ?>
                     <p class="dropdown-item">
-                        <a href="<?php echo SITE_URL; ?>pages/singer.php?id='<?php $r['id'] ?>'">
+                        <a href="<?php echo SITE_URL; ?>pages/singer.php?id=<?= $id ?>">
                             <?= $r['name'] ?>
                         </a>
                     </p>

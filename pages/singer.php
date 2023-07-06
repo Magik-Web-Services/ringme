@@ -21,7 +21,7 @@ if ($sendup == "0") {
   $popup = "";
 }
 
-$ress = mysqli_query($link, "SELECT * FROM `singers`");
+$ress = mysqli_query($link, "SELECT * FROM `singers` WHERE id='$ids'");
 $rs = mysqli_fetch_array($ress);
 ?>
 <link rel="stylesheet" href="../stylemobile.css">
@@ -48,7 +48,7 @@ $rs = mysqli_fetch_array($ress);
   <div class="artist-container">
 
     <div class="aboutArtist">
-      <div class="artistImage" style="background-image: url(https://<?php echo SITE_URL ?>/images/artists/<?php echo $rs['image']; ?>);">
+      <div class="artistImage" style="background-image: url(<?php echo SITE_URL ?>images/artists/<?php echo $rs['image']; ?>);">
 
       </div>
 
@@ -63,9 +63,9 @@ $rs = mysqli_fetch_array($ress);
     <div class="ringtones-list">
 
       <?php
-      if (!$_GET['id']) {
-        header('Location: https://www.ringme.co.il');
-      }
+      // if (!$_GET['id']) {
+      //   header('Location: https://www.ringme.co.il');
+      // }
 
 
       $artist = $rs['name'];
