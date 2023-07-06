@@ -7,7 +7,7 @@ $send = $settings['send'];
 $sendup = $settings['sendup'];
 
 if ($sendup == "0") {
-  $popup = " onclick=\"return window.open('https://www.ringme.co.il/ads.php', 'myWindow', 'status = 1, height = 190, width = 730, resizable = 0')\"";
+  $popup = " onclick=\"return window.open('https://".SITE_URL."ads.php', 'myWindow', 'status = 1, height = 190, width = 730, resizable = 0')\"";
 } else if ($sendup == "1") {
   $popup = "";
 }

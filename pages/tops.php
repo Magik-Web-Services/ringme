@@ -6,18 +6,18 @@ $ress = mysqli_query($link, "SELECT * FROM `settings` WHERE id = '1' ");
 $rs = mysqli_fetch_array($ress);
 $sendup = $rs['sendup'];
 if ($sendup == "0") {
-  $popup = " onclick=\"return window.open('https://www.ringme.co.il/ads.php', 'myWindow', 'status = 1, height = 190, width = 730, resizable = 0')\"";
+  $popup = " onclick=\"return window.open('".SITE_URL."/ads.php', 'myWindow', 'status = 1, height = 190, width = 730, resizable = 0')\"";
 } else if ($sendup == "1") {
   $popup = "";
 }
 
 if ($_SERVER["REQUEST_URI"] == "/index.php?act=tops") {
-  $to = "https://www.ringme.co.il/tops.html";
+  $to = "https://".SITE_URL."/tops.html";
   header("Location: $to");
 }
 
 if ($_SERVER["REQUEST_URI"] == "/?act=tops") {
-  $to = "https://www.ringme.co.il/tops.html";
+  $to = "https://".SITE_URL."/tops.html";
   header("Location: $to");
 }
 ?>

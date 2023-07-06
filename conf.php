@@ -1,5 +1,6 @@
 <?php
 if (!defined('MAIN_DIR')) define('MAIN_DIR', 'http://localhost/demo/ringme/');
+if (!defined('SITE_URL')) define('SITE_URL', 'http://localhost/demo/ringme/');
 
 
 error_reporting(1);

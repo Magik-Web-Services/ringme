@@ -1,7 +1,7 @@
 <div class="header">
     <div class="logo">
-        <a href="<?php echo MAIN_DIR; ?>index.php">
-            <img src="<?php echo MAIN_DIR ?>img/logo.png" alt="צלצולים">
+        <a href="<?php echo SITE_URL; ?>index.php">
+            <img src="<?php echo SITE_URL ?>img/logo.png" alt="צלצולים">
         </a>
     </div>
 
@@ -10,7 +10,7 @@
         <div class="dropdown">
             <div class="text dropdown-headline">
                 <span class="header-menu-item">אמנים</span>
-                <img src="<?php echo MAIN_DIR ?>img/svg/caret-down.svg" alt="">
+                <img src="<?php echo SITE_URL ?>img/svg/caret-down.svg" alt="">
             </div>
 
             <div class="dropdown-content artists">
@@ -19,7 +19,7 @@
                 echo $r['id']
                     ?>
                     <p class="dropdown-item">
-                        <a href="<?php echo MAIN_DIR; ?>pages/singer.php?id='<?php $r['id'] ?>'">
+                        <a href="<?php echo SITE_URL; ?>pages/singer.php?id='<?php $r['id'] ?>'">
                             <?= $r['name'] ?>
                         </a>
                     </p>
@@ -31,46 +31,46 @@
         <div class="dropdown">
             <div class="text dropdown-headline">
                 <span class="header-menu-item">קטגוריות</span>
-                <img src="<?php echo MAIN_DIR ?>img/svg/caret-down.svg" alt="">
+                <img src="<?php echo SITE_URL ?>img/svg/caret-down.svg" alt="">
             </div>
             <div class="dropdown-content">
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>pages/cat.php">
+                    <a href="<?php echo SITE_URL; ?>pages/cat.php">
                         מזרחית
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/cat.php">
+                <a href="<?php echo SITE_URL; ?>pages/cat.php">
                         מזרחית רמיקס
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/cat.php">
+                <a href="<?php echo SITE_URL; ?>pages/cat.php">
                         דיכאון
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/cat.php">
+                <a href="<?php echo SITE_URL; ?>pages/cat.php">
                         לועזי
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/cat.php">
+                <a href="<?php echo SITE_URL; ?>pages/cat.php">
                         טראנס
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/cat.php">
+                <a href="<?php echo SITE_URL; ?>pages/cat.php">
                         הבקשות שלכם
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/iphone.php">
+                <a href="<?php echo SITE_URL; ?>pages/iphone.php">
                         צלצולים לאייפון
                     </a>
                 </p>
                 <p class="dropdown-item">
-                <a href="<?php echo MAIN_DIR; ?>pages/tops.php">
+                <a href="<?php echo SITE_URL; ?>pages/tops.php">
                         30 הצלצולים הגדולים
                     </a>
                 </p>
@@ -82,46 +82,46 @@
         <div class="dropdown">
             <div class="text dropdown-headline">
                 <span class="header-menu-item">תפריט</span>
-                <img src="<?php echo MAIN_DIR; ?>img/svg/caret-down.svg" alt="">
+                <img src="<?php echo SITE_URL; ?>img/svg/caret-down.svg" alt="">
             </div>
 
             <div class="dropdown-content menu">
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>index.php">
+                    <a href="<?php echo SITE_URL; ?>index.php">
                         צלצולים
                     </a>
                 </p>
 
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>send.php" class="ask-for-ringtone">
+                    <a href="<?php echo SITE_URL; ?>send.php" class="ask-for-ringtone">
                         חיפוש/בקשת צלצול
                     </a>
                 </p>
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>pages/report.php" style="color: rgb(167, 7, 7);">
+                    <a href="<?php echo SITE_URL; ?>pages/report.php" style="color: rgb(167, 7, 7);">
                         מצאתם בעיה באתר? דווחו עליה עכשיו!
                     </a>
                 </p>
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>pages/howto.php">
+                    <a href="<?php echo SITE_URL; ?>pages/howto.php">
                         לא מצליחים להוריד? המדריך המלא להורדת צלצולים מהאתר!
                     </a>
                 </p>
 
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>pages/ringtones.php">
+                    <a href="<?php echo SITE_URL; ?>pages/ringtones.php">
                         כל הצלצולים
                     </a>
                 </p>
 
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>pages/youtube.php" style="color: orange">
+                    <a href="<?php echo SITE_URL; ?>pages/youtube.php" style="color: orange">
                         הורדת שירים מיוטיוב
                     </a>
                 </p>
 
                 <p class="dropdown-item">
-                    <a href="<?php echo MAIN_DIR; ?>pages/bigbrother.php" style="color: #33ACFF">
+                    <a href="<?php echo SITE_URL; ?>pages/bigbrother.php" style="color: #33ACFF">
                         האח הגדול
                     </a>
                 </p>

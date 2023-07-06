@@ -48,7 +48,7 @@ $rs = mysqli_fetch_array($ress);
   <div class="artist-container">
 
     <div class="aboutArtist">
-      <div class="artistImage" style="background-image: url(https://www.ringme.co.il/images/artists/<?php echo $rs['image']; ?>);">
+      <div class="artistImage" style="background-image: url(https://<?php echo SITE_URL ?>/images/artists/<?php echo $rs['image']; ?>);">
 
       </div>
 

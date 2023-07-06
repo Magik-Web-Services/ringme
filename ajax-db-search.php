@@ -6,7 +6,7 @@ $dbname = "";
 $conn = mysqli_connect($servername, $username, $password, "$dbname");
 mysqli_set_charset($conn, "utf8");
 if (!$conn) {
-    die('Could not Connect MySql Server:' . );
+    die('Could not Connect MySql Server');
 }
 
 if (isset($_POST['query'])) {
