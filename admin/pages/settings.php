@@ -21,9 +21,9 @@ session_start();
 		die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
 
 	include "../../conf.php";
-	include "functionss.php";
+	// include "functionss.php";
 
-	$do = $_GET['do'];
+	$do = (isset($_GET['do']) && !empty($_GET['do'])) ? $_GET['do'] : '';
 	switch ($do) {
 
 		default:
@@ -87,7 +87,7 @@ END;
 			mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date` , `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$user', UNIX_TIMESTAMP(), '2')");
 			$users = $_SESSION["ad_user"];
 			mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
-			redirect_user("settings.php", "עריכת הודעה למנהלים עודכנה בהצלחה!");
+			// redirect_user("settings.php", "עריכת הודעה למנהלים עודכנה בהצלחה!");
 		}
 	}
 	?>

@@ -24,18 +24,17 @@ session_start();
 
 <body style='padding:15px'>
     <?php
-    //© All Rights Reserved 09/10 - CMS.co.il ©//
-    define('_MATAN', 1);
+    // //© All Rights Reserved 09/10 - CMS.co.il ©//
+    // define('_MATAN', 1);
     // session
     if (empty($_SESSION["ad_group"]))
         die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
 
-    // include "../../conf.php";
-    include "functionss.php";
+    include "../../conf.php";
+    //  // include "functionss.php";
     defined('_MATAN');
 
-
-    $do = $_GET['do'];
+    $do = (isset($_GET['do']) && !empty($_GET['do'])) ? $_GET['do'] : '';
     switch ($do) {
         case 'all':
             main_all();
@@ -59,7 +58,7 @@ session_start();
         $log = "מחק את כל הפעולות האחרונות";
         $song = $_SESSION["ad_user"];
         mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$song', UNIX_TIMESTAMP())");
-        redirect_user("main.php", "הפעולות האחרונות נמחקו בהצלחה!");
+        // // redirect_user("main.php", "הפעולות האחרונות נמחקו בהצלחה!");
     }
 
 
@@ -70,7 +69,7 @@ session_start();
         $log = "איפס את כל הפעולות האחרונות";
         $song = $_SESSION["ad_user"];
         mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$song', UNIX_TIMESTAMP(), '4')");
-        redirect_user("main.php", "הפעולות האחרונות התאפסו בהצלחה!");
+        // // redirect_user("main.php", "הפעולות האחרונות התאפסו בהצלחה!");
     }
 
     function main_week()
@@ -80,7 +79,7 @@ session_start();
         $log = "איפס את כל ההורדות השבועיות";
         $song = $_SESSION["ad_user"];
         mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$song', UNIX_TIMESTAMP(), '4')");
-        redirect_user("main.php", "ההורדות השבועיות התאפסו בהצלחה!");
+        // // redirect_user("main.php", "ההורדות השבועיות התאפסו בהצלחה!");
     }
 
     function main_main()
@@ -172,13 +171,13 @@ session_start();
 
         if ($baksssq > 0) {
             echo "
-	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#ad1010;color:#5f8806'>
-	<tr>
-	<td align='right' style='font-size:16px;'><font color='black'><b>בקשות צלצולים חדשות ממתינות! טפל בהם..</b></font></td>
-	</tr>
-	</table>
-	<br>
-";
+        	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#ad1010;color:#5f8806'>
+        	<tr>
+        	<td align='right' style='font-size:16px;'><font color='black'><b>בקשות צלצולים חדשות ממתינות! טפל בהם..</b></font></td>
+        	</tr>
+        	</table>
+        	<br>
+        ";
         }
         ?>
         <table cellpadding='2' cellspacing='1' width='100%' style='background-color:#d1d1d1;color:#062b4d'>
@@ -277,24 +276,24 @@ session_start();
 
                 if ($r == 1) {
                     echo "<tr bgcolor='white' onMouseOver=this.bgColor='#f4f4f4' onMouseOut=this.bgColor='white'>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'><img src='images/cup.gif' width='15' height='15' style='vertical-align:middle'></td>
-		<td align='right' style='font-size:11px;background-color:#ffffff;'>{$t['name']} - {$t['artist']}</td>
-		<td align='right' style='font-size:11px;background-color:#ffffff;'>{$cats}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['id']}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$p}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downloads']}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downweek']}</td>
-	</tr>";
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'><img src='images/cup.gif' width='15' height='15' style='vertical-align:middle'></td>
+        	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$t['name']} - {$t['artist']}</td>
+        	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$cats}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['id']}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$p}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downloads']}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downweek']}</td>
+        </tr>";
                 } else {
                     echo "	<tr bgcolor='white' onMouseOver=this.bgColor='#f4f4f4' onMouseOut=this.bgColor='white'>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$urik}</td>
-		<td align='right' style='font-size:11px;background-color:#ffffff;'>{$t['name']} - {$t['artist']}</td>
-		<td align='right' style='font-size:11px;background-color:#ffffff;'>{$cats}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['id']}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$p}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downloads']}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downweek']}</td>
-	</tr>";
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$urik}</td>
+        	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$t['name']} - {$t['artist']}</td>
+        	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$cats}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['id']}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$p}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downloads']}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downweek']}</td>
+        </tr>";
                 }
                 $urik = $r++;
             }
@@ -331,14 +330,14 @@ session_start();
                 $urikq = $rq++;
 
                 echo "	<tr bgcolor='white' onMouseOver=this.bgColor='#f4f4f4' onMouseOut=this.bgColor='white'>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$urikq}</td>
-		<td align='right' style='font-size:11px;background-color:#ffffff;'>{$t['name']} - {$t['artist']}</td>
-		<td align='right' style='font-size:11px;background-color:#ffffff;'>{$cats}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['id']}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$p}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downloads']}</td>
-		<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downweek']}</td>
-	</tr>";
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$urikq}</td>
+        	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$t['name']} - {$t['artist']}</td>
+        	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$cats}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['id']}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$p}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downloads']}</td>
+        	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$t['downweek']}</td>
+        </tr>";
             }
 
             ?>
@@ -407,17 +406,17 @@ session_start();
 
 
                     echo "<tr>
-	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$row['id']}</td>
-	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$row['user']}</td>
-	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$row['ip']}</td>
-	<td align='center' style='font-size:11px;background-color:#ffffff;'>{$da} - {$ga}</td>
-	<td align='right' style='font-size:11px;background-color:#ffffff;'>{$row['img']} {$row['text']}</td>
-	</tr>";
+            <td align='center' style='font-size:11px;background-color:#ffffff;'>{$row['id']}</td>
+            <td align='center' style='font-size:11px;background-color:#ffffff;'>{$row['user']}</td>
+            <td align='center' style='font-size:11px;background-color:#ffffff;'>{$row['ip']}</td>
+            <td align='center' style='font-size:11px;background-color:#ffffff;'>{$da} - {$ga}</td>
+            <td align='right' style='font-size:11px;background-color:#ffffff;'>{$row['img']} {$row['text']}</td>
+            </tr>";
                 }
             } else
                 echo "<tr>
-	<td align='center' style='font-size:11px;background-color:#ffffff;' colspan='3'>פעולות אחרונות של אדמינים לא זמינים כרגע</td>
-	</tr>";
+            <td align='center' style='font-size:11px;background-color:#ffffff;' colspan='3'>פעולות אחרונות של אדמינים לא זמינים כרגע</td>
+            </tr>";
 
             ?>
         </table>

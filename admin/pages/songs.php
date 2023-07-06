@@ -79,8 +79,8 @@ if ($_SESSION["ad_group"] != 1)
 	include("../../getid3/getid3.php");
 
 	include "../../conf.php";
-	include "functionss.php";
-	$do = $_GET['do'];
+	// include "functionss.php";
+	$do = (isset($_GET['do']) && !empty($_GET['do'])) ? $_GET['do'] : '';
 	switch ($do) {
 		case 'add':
 			sng_add();
@@ -127,16 +127,17 @@ if ($_SESSION["ad_group"] != 1)
 		$tes = mysqli_query($link, "SELECT * FROM `members` WHERE `user` = '{$admin}'");
 		$r = mysqli_fetch_array($tes);
 
-		if (!$_GET['page']) {
+		$Apage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+		if (!$Apage) {
 			$page = "";
 		} else {
-			$pages = "> עמוד מספר " . $_GET['page'];
+			$page = "> עמוד מספר " . $Apage;
 		}
 
 		echo <<<END
 	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#d0e5a3;color:#5f8806'>
 	<tr>
-	<td align='right' style='font-size:16px;'><font color='black'>ניהול צלצולים:</font> <b>רשימת צלצולים חמים</b> {$pages} 
+	<td align='right' style='font-size:16px;'><font color='black'>ניהול צלצולים:</font> <b>רשימת צלצולים חמים</b> {$page} 
 </td>
 	</tr>
 	</table>
@@ -148,8 +149,8 @@ END;
 		}
 
 		$limit = "30";
-		$cpage = intval($_GET['page']);
-		if (!$_GET['page'] || $_GET['page'] < 1) {
+		$cpage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+		if (!$cpage || $cpage < 1) {
 			$cpage = 1;
 		}
 		$t = mysqli_num_rows(mysqli_query($link, "SELECT id FROM songs"));
@@ -159,29 +160,30 @@ END;
 		$ppage = $cpage - 1;
 		$i = ($cpage * $limit) - $limit;
 
+		$order = (isset($_GET['order']) && !empty($_GET['order'])) ? $_GET['order'] : '';
 
-		if ($_GET["order"] == "") {
+		if ($order == "") {
 			$res = mysqli_query($link, "SELECT * FROM songs WHERE `hot` = '2' ORDER by id DESC");
-		} else if ($_GET["order"] == "2") {
+		} else if ($order == "2") {
 			$limit = "100";
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER BY oldownloads DESC LIMIT $i,$limit");
-		} else if ($_GET["order"] == "") {
+		} else if ($order == "") {
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER by id DESC LIMIT $i,$limit");
-		} else if ($_GET["order"] == "1") {
+		} else if ($order == "1") {
 			$limit = "100";
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER BY downloads DESC LIMIT $i,$limit");
 		}
 
 
-		if (!$_GET["order"]) {
+		if (!$order) {
 			$downa = "<a href='?order=1'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
-		} else if ($_GET["order"] == "1") {
+		} else if ($order == "1") {
 			$downa = "<a href='songs.php'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
 		}
 
-		if (!$_GET["order"]) {
+		if (!$order) {
 			$olddowna = "<a href='?order=2'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
-		} else if ($_GET["order"] == "2") {
+		} else if ($order == "2") {
 			$olddowna = "<a href='songs.php'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
 		}
 
@@ -335,8 +337,7 @@ END;
 		echo "</div>";
 	}
 
-	$idcat = $_POST['catt'];
-
+	$idcat = (isset($_POST['catt']) && !empty($_POST['catt'])) ? $_POST['catt'] : '';
 
 
 
@@ -348,10 +349,11 @@ END;
 		$tes = mysqli_query($link, "SELECT * FROM `members` WHERE `user` = '{$admin}'");
 		$r = mysqli_fetch_array($tes);
 
-		if (!$_GET['page']) {
+		$Apage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+		if (!$Apage) {
 			$page = "";
 		} else {
-			$pages = "> עמוד מספר " . $_GET['page'];
+			$page = "> עמוד מספר " . $Apage;
 		}
 
 		echo <<<END
@@ -359,7 +361,7 @@ END;
 
 	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#d0e5a3;color:#5f8806'>
 	<tr>
-	<td align='right' style='font-size:16px;'><font color='black'>ניהול צלצולים:</font> <b>רשימת צלצולים</b> {$pages} 
+	<td align='right' style='font-size:16px;'><font color='black'>ניהול צלצולים:</font> <b>רשימת צלצולים</b> {$page} 
 </td>
 	</tr>
 	</table>
@@ -526,8 +528,8 @@ END;
 
 
 		$limit = "13";
-		$cpage = intval($_GET['page']);
-		if (!$_GET['page'] || $_GET['page'] < 1) {
+		$cpage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+		if (!$cpage || $cpage < 1) {
 			$cpage = 1;
 		}
 		$t = mysqli_num_rows(mysqli_query($link, "SELECT id FROM songs"));
@@ -537,40 +539,42 @@ END;
 		$ppage = $cpage - 1;
 		$i = ($cpage * $limit) - $limit;
 
+		$order = (isset($_GET['order']) && !empty($_GET['order'])) ? $_GET['order'] : '';
 
-		if ($_GET["order"] == "") {
+		if ($order == "") {
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER by id DESC LIMIT $i,$limit");
-		} else if ($_GET["order"] == "2") {
+		} else if ($order == "2") {
 			$limit = "100";
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER BY oldownloads DESC LIMIT $i,$limit");
-		} else if ($_GET["order"] == "") {
+		} else if ($order == "") {
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER by id DESC LIMIT $i,$limit");
-		} else if ($_GET["order"] == "1") {
+		} else if ($order == "1") {
 			$limit = "100";
 			$res = mysqli_query($link, "SELECT * FROM songs ORDER BY downloads DESC LIMIT $i,$limit");
 		}
 
 
-		if (!$_GET["order"]) {
+		if (!$order) {
 			$downa = "<a href='?order=1'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
-		} else if ($_GET["order"] == "1") {
+		} else if ($order == "1") {
 			$downa = "<a href='songs.php'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
 		}
 
-		if (!$_GET["order"]) {
+		if (!$order) {
 			$olddowna = "<a href='?order=2'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
-		} else if ($_GET["order"] == "2") {
+		} else if ($order == "2") {
 			$olddowna = "<a href='songs.php'><img src='images/menu_open.gif' style='vertical-align:middle' alt='סדר לפי כמות הורדות' border='0'> <b>מס' הורדות</b></a>";
 		}
-		$tes1 = $user['url'];
+
+		$Auser = (isset($user['url']) && !empty($user['url'])) ? $user['url'] : '';
+		$tes1 = $Auser;
 		$name2 = "../../" . $tes1;
 		if (file_exists($name2)) {
 			$ec = "<img src='https://www.ringme.co.il/images/v.png'>";
 		} else {
 			$ec = "<img src='https://www.ringme.co.il/images/icon-no.png'>";
 		}
-
-		$tes = $user['urliphone'];
+		$tes = (isset($user['urliphone']) && !empty($user['urliphone'])) ? $user['urliphone'] : '';
 		$name1 = "../../" . $tes;
 
 		if ($name1 == "../../") {
@@ -583,11 +587,11 @@ END;
 			}
 		}
 
-
-		if ($user['url'] == "") {
+		$Aurl = (isset($user['url']) && !empty($user['url'])) ? $user['url'] : '';
+		if ($Aurl == "") {
 			$ec = "לא הוכנס";
 		}
-		if ($user['urliphone'] == "") {
+		if ($Aurl == "") {
 			$string = " לא הוכנס<br />";
 		}
 
@@ -734,12 +738,11 @@ END;
 				$olddo = "{<font style='font-size:9px;'>{$r['oldownloads']}</font>}";
 			}
 
-
+			$Afile = (isset($file['playtime_seconds']) && !empty($file['playtime_seconds'])) ? $file['playtime_seconds'] : '1';
 			$filename = '../../' . $r['url'];
 			$getID3 = new getID3;
 			$file = $getID3->analyze($filename);
-			$playtime_seconds = $file['playtime_seconds'];
-			$secc = gmdate("s", $playtime_seconds);
+			$secc = gmdate("s", $Afile);
 
 			echo "
 <tr bgcolor='{$urikascolor}' onMouseOver='this.bgColor=\"#f4f4f4\"' onMouseOut='this.bgColor=\"{$urikascolor}\"'>
@@ -796,10 +799,12 @@ END;
 	<br>
 		<div dir="rtl">
 END;
+		$reg = "";
+		$error = "";
 		function add_form()
 		{
 			include "../../conf.php";
-			$idcat = $_SESSION["catss"];
+			$idcat = (isset($_SESSION["catss"]) && !empty($_SESSION["catss"])) ? $_SESSION["catss"] : '';
 			$query = "SELECT MAX(id) FROM songs";
 			$result = mysqli_query($link, $query) or die();
 			$row = mysqli_fetch_array($result);
@@ -1108,17 +1113,17 @@ END;
 
 				mysqli_query($link, "INSERT INTO `songs` (`id`, `name`, `artist`, `downloads`, `oldownloads`, `downweek`, `hot`, `url`, `catid`, `yesorno`, `text`, `urliphone`) VALUES ('$idsaq', '{$name}', '{$artist}', '0', '0', '0', '1', '{$url}', '$cat', '0', '$dess', '$urliphone')");
 				// if (mysqli_insert_id()) {
-					$reg = "OK";
-					$error = "הוספת הצלצול בוצעה בהצלחה";
-					$log = "<u>יצירת צלצול:</u> $name - $artist";
-					$name = $_SESSION["ad_user"];
+				$reg = "OK";
+				$error = "הוספת הצלצול בוצעה בהצלחה";
+				$log = "<u>יצירת צלצול:</u> $name - $artist";
+				$name = $_SESSION["ad_user"];
 
-					mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$name', UNIX_TIMESTAMP(), '1')");
+				mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$name', UNIX_TIMESTAMP(), '1')");
 
-					mysqli_query($link, "UPDATE `songs` SET `text` = '$dess' WHERE `id` = '$idsaq' ");
-					mysqli_query($link, "UPDATE `songs` SET `name` = '{$nameq}' WHERE `id` = $idsaq ");
-					$users = $_SESSION["ad_user"];
-					mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
+				mysqli_query($link, "UPDATE `songs` SET `text` = '$dess' WHERE `id` = '$idsaq' ");
+				mysqli_query($link, "UPDATE `songs` SET `name` = '{$nameq}' WHERE `id` = $idsaq ");
+				$users = $_SESSION["ad_user"];
+				mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 				// } else {
 				// 	$error = "אירעה שגיאה במהלך הרישום, אנא נסה שנית";
 				// }
@@ -1137,7 +1142,7 @@ END;
 END;
 			echo "<div align=\"center\">";
 			echo "</div>";
-			redirect_user("songs.php", "הוספת השיר בוצעה בהצלחה!");
+			// redirect_user("songs.php", "הוספת השיר בוצעה בהצלחה!");
 		} else {
 			echo "<div align=\"center\">";
 			echo $error;
@@ -1383,7 +1388,7 @@ END;
 				mysqli_query($link, "UPDATE `songs` SET `name` = '{$name4}' WHERE `id` = $id ");
 
 				$error = "<font color='green' size='5'><b>עריכת הצלצול בוצעה בהצלחה</b></font>";
-				redirect_user("songs.php", "עריכת הצלצול בוצעה בהצלחה!");
+				// redirect_user("songs.php", "עריכת הצלצול בוצעה בהצלחה!");
 				$edit = "OK";
 				$log = "<u>עריכת צלצול:</u> $name - $artist";
 				$user = $_SESSION["ad_user"];
@@ -1456,7 +1461,7 @@ END;
 			mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
 			mysqli_query($link, "DELETE FROM `songs` WHERE `id` = '$id' ");
-			redirect_user("songs.php", "מחיקת הצלצול בוצעה בהצלחה!");
+			// redirect_user("songs.php", "מחיקת הצלצול בוצעה בהצלחה!");
 		} else {
 			echo "<div align=\"center\">";
 			echo $error;

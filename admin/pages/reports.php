@@ -18,11 +18,11 @@ session_start();
 	// session
 
 	include "../../conf.php";
-	include "functionss.php";
+	 // include "functionss.php";
 	if ($_SESSION["ad_group"] != 1)
 		die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
 
-	$do = $_GET['do'];
+	$do = (isset($_GET['do']) && !empty($_GET['do'])) ? $_GET['do'] : '';
 	switch ($do) {
 		case 'delete':
 			ordr_delete();
@@ -54,8 +54,8 @@ session_start();
 END;
 
 		$limit = "15";
-		$cpage = intval($_GET['page']);
-		if (!$_GET['page'] || $_GET['page'] < 1) {
+		$cpage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+		if (!$cpage|| $cpage < 1) {
 			$cpage = 1;
 		}
 		$t = mysqli_num_rows(mysqli_query($link, "SELECT id FROM reports"));
@@ -135,7 +135,7 @@ END;
 		$users = $_SESSION["ad_user"];
 		mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
-		redirect_user("reports.php", "כל הדיווחים נמחקו בהצלחה!");
+		// redirect_user("reports.php", "כל הדיווחים נמחקו בהצלחה!");
 	}
 
 
@@ -150,7 +150,7 @@ END;
 		$users = $_SESSION["ad_user"];
 		mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
-		redirect_user("reports.php", "מספר הדיווחים באתר אופס בהצלחה!");
+		// redirect_user("reports.php", "מספר הדיווחים באתר אופס בהצלחה!");
 	}
 
 	function ordr_delete()
@@ -184,7 +184,7 @@ END;
 			mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
 			mysqli_query($link, "DELETE FROM `reports` WHERE `id` IN (" . $delete_id . ")");
-			redirect_user("reports.php", "הדיווח נמחק בהצלחה!");
+			// redirect_user("reports.php", "הדיווח נמחק בהצלחה!");
 		} else {
 			echo "<div align=\"center\">";
 			echo $error;

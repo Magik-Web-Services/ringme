@@ -1,13 +1,25 @@
 https://www.ringme.co.il/
 
 index.php - add isset, empty and change php tags
-send.php - add html and add isset, empty and change php tags and;
-pages/report.php - change php tags and add css file add conf file and;
-pages/howto.php - add conf file add css file and;
-pages/ringtones.php - add conf file add css file and style add footer html and;
-pages/youtube.php - add conf file add css file and style add footer html and;
-pages/bigbrother.php - add conf file add css file and style add footer html and;
-pages/singer.php - add conf file add css file and style add footer html and;
-pages/cat.php - add conf file add css file and style add footer html and;
-pages/iphone.php - add conf file add css file and style add footer html and;
-pages/tops.php - add conf file add css file and style add footer html and;
+send.php - add html and add isset, empty and change php tags
+admn.php - add isset, empty and change php tags
+pages/report.php - change php tags and add css file add conf file
+pages/howto.php - add conf file add css file
+pages/ringtones.php - add conf file add css file and style add footer html
+pages/youtube.php - add conf file add css file and style add footer html
+pages/bigbrother.php - add conf file add css file and style add footer html
+pages/singer.php - add conf file add css file and style add footer html
+pages/cat.php - add conf file add css file and style add footer html
+pages/iphone.php - add conf file add css file and style add footer html
+pages/tops.php - add conf file add css file and style add footer html
+admin/index.php - add session_start(); add conf file and change php tags add isset, empty
+admin/index.php - add conf file and change php tags
+admin/pages/blocks.php - add conf file and change php tags and remove functionss.php
+admin/pages/cats.php - add isset, empty add conf file and change php tags
+admin/pages/main.php - add isset, empty and change php tags 
+admin/pages/orders.php - add isset, empty and change php tags and remove functionss.php
+admin/pages/reports.php - add isset, empty and change php tags and remove functionss.php
+admin/pages/setoff.php - add isset, empty and change php tags and remove functionss.php
+admin/pages/setting.php - add isset, empty and change php tags and remove functionss.php
+admin/pages/singers.php - add isset, empty and change php tags and remove functionss.php
+admin/pages/songs.php - add isset, empty and change php tags and remove functionss.php

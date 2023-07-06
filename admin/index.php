@@ -1,11 +1,11 @@
 <?php
 define('_MATAN', 1);
 
-
-// if (!isset($_SESSION["ad_login"])) {
-//   header('location: ../admin.php');
-// }
 session_start();
+
+if (!isset($_SESSION["ad_login"])) {
+  header('location: ../admin.php');
+}
 $_SESSION['ad_user'] = 'admin';
 
 // include
