@@ -65,6 +65,7 @@
   </table>
   <br />
   <?php
+  session_start();
   include "../conf.php";
   $admin = $_SESSION['ad_user'];
   $tes = mysqli_query($link, "SELECT * FROM `members` WHERE `user` = '{$admin}'");

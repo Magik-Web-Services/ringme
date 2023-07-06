@@ -1,56 +1,57 @@
 <?php
-session_start(); 
+session_start();
 date_default_timezone_set("Asia/Jerusalem");
 ?>
 <HTML dir="rtl">
+
 <HEAD>
-  <TITLE>ניהול משתמשים</TITLE>
-<link href='stylesheet.css' rel='stylesheet' type='text/css'>
-<script type='text/javascript' src='../java.js'></script> 
+	<TITLE>ניהול משתמשים</TITLE>
+	<link href='stylesheet.css' rel='stylesheet' type='text/css'>
+	<script type='text/javascript' src='../java.js'></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="Content-Language" content="he" />
+	<meta http-equiv="Content-Language" contentz="he" />
 </HEAD>
+
 <body bgcolor="#FFFFFF" style='padding:15px'>
 
-<?php
-//© All Rights Reserved 09/10 - CMS.co.il ©//
-define( '_MATAN', 1 );
-// session
+	<?php
+	//© All Rights Reserved 09/10 - CMS.co.il ©//
+	define('_MATAN', 1);
+	// session
 
-include "../../conf.php";
+	include "../../conf.php";
 
-$admin = $_SESSION[ad_user];
-$tes = mysqli_query($link,"SELECT * FROM `members` WHERE `user` = '{$admin}'");
-$r = mysqli_fetch_array($tes);
+	$admin = $_SESSION['ad_user'];
+	$tes = mysqli_query($link, "SELECT * FROM `members` WHERE `user` = '{$admin}'");
+	$r = mysqli_fetch_array($tes);
 
-if($r["group"] > "1")
-die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
+	if ($r["group"] > "1")
+		die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
 
-if ($_SESSION["ad_group"] != 1)
-die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
+	if ($_SESSION["ad_group"] != 1)
+		die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
 
-$do = $_GET['do'];
-  switch($do)
-  {	
-	case 'add':
-		mem_add();
-		break;
-	case 'delete':
-		mem_delete();
-		break;
-	case 'edit':
-		mem_edit();
-		break;
-	default:
-		mem_main();
-		break;             
-  } 
+	$do = (isset($_GET['do']) && !empty($_GET['do'])) ? $_GET['do'] : '';
+	switch ($do) {
+		case 'add':
+			mem_add();
+			break;
+		case 'delete':
+			mem_delete();
+			break;
+		case 'edit':
+			mem_edit();
+			break;
+		default:
+			mem_main();
+			break;
+	}
 
 
 	function mem_main()
 	{
-	    include "../../conf.php";
-echo<<<END
+		include "../../conf.php";
+		echo <<<END
 	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#d0e5a3;color:#5f8806'>
 	<tr>
 	<td align='right' style='font-size:16px;'><font color='black'>אדמינים וצוות האתר:</font> <b>רשימת משתמשים</b></td>
@@ -60,20 +61,19 @@ echo<<<END
 END;
 
 		$limit = "15";
-		$cpage = intval($_GET['page']);
-		if (!$_GET['page'] || $_GET['page'] < 1) 
-		{
+		$cpage = (isset($_GET['page']) && !empty($_GET['page'])) ? $_GET['page'] : '';
+		if (!$cpage|| $cpage < 1) {
 			$cpage = 1;
-		}    
-		$t = mysqli_num_rows(mysqli_query($link,"SELECT id FROM members"));  
-		$p1 = $t/$limit;
+		}
+		$t = mysqli_num_rows(mysqli_query($link, "SELECT id FROM members"));
+		$p1 = $t / $limit;
 		$pages = ceil($p1);
-		$npage = $cpage+1;
-		$ppage = $cpage-1;
+		$npage = $cpage + 1;
+		$ppage = $cpage - 1;
 		$i = ($cpage * $limit) - $limit;
-		$res = mysqli_query($link,"SELECT * FROM members ORDER BY id LIMIT $i,$limit ");
+		$res = mysqli_query($link, "SELECT * FROM members ORDER BY id LIMIT $i,$limit ");
 
-echo<<<END
+		echo <<<END
 		<form method="POST" name="form" action="">
 <table cellpadding='2' cellspacing='1' width='100%' style='background-color:#d1d1d1;color:#062b4d'>
 	<tr>
@@ -87,25 +87,24 @@ echo<<<END
 </tr>
 END;
 
-		while($r = mysqli_fetch_array($res))
-		{
-		$group = ($r[group] == 1) ? "מנהל" : "עובד";
-		$date = $r[joindate];
-		@list($d, $m, $y) = split('/', date("j/n/Y", $date)); 
-		@list($yom, $chodesh, $shana) = split(' ', jdtojewish(gregoriantojd($m, $d, $y), true)); 
-		$date = @date("H:i:s",$date)." "."$yom $chodesh $shana";                         ;
+		while ($r = mysqli_fetch_array($res)) {
+			$group = ($r['group'] == 1) ? "מנהל" : "עובד";
+			$date = $r['joindate'];
+			// @list($d, $m, $y) = str_split('/', date("j/n/Y", $date));
+			// @list($yom, $chodesh, $shana) = str_split(' ', jdtojewish(gregoriantojd($m, $d, $y), true));
+			// $date = @date("H:i:s", $date) . " " . "$yom $chodesh $shana";;
 
 
-    		$rowa = mysqli_fetch_assoc(mysqli_query($link,"SELECT * FROM `members` WHERE `id` = '{$r[id]}'"));
-   		 // get the date
-    		$da = date("d/m/Y", $rowa['joindate']);
-    		// get the time
-    		$ga = date("G:i", $rowa['joindate']);
+			$rowa = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM `members` WHERE `id` = '{$r['id']}'"));
+			// get the date
+			$da = date("d/m/Y", $rowa['joindate']);
+			// get the time
+			$ga = date("G:i", $rowa['joindate']);
 
-		echo "<tr bgcolor='white' onMouseOver=this.bgColor='#f4f4f4' onMouseOut=this.bgColor='white'>";
-		echo "<td align='center'><input type=\"radio\" value=\"$r[id]\" name=\"edit\" onclick=\"form.action='?act=members&do=edit'\"></td><td align='center'><input type=\"radio\" value=\"$r[id]\" name=\"edit\" onclick=\"form.action='?act=members&do=delete'\"disabled></td><td  align='center'>$r[id]</td><td  align='center'>$r[user]</td><td  align='center'>$r[email]</td><td  align='center'>$r[name]</td><td align='center'>$r[phone]</td><td  align='center'>$group</td><td  align='center'>$r[ip]</td><td  align='center'>$da - $ga</td>";
-		echo "</tr>";
-		} 
+			echo "<tr bgcolor='white' onMouseOver=this.bgColor='#f4f4f4' onMouseOut=this.bgColor='white'>";
+			echo "<td align='center'><input type=\"radio\" value=\"$r[id]\" name=\"edit\" onclick=\"form.action='?act=members&do=edit'\"></td><td align='center'><input type=\"radio\" value=\"$r[id]\" name=\"edit\" onclick=\"form.action='?act=members&do=delete'\"disabled></td><td  align='center'>$r[id]</td><td  align='center'>$r[user]</td><td  align='center'>$r[email]</td><td  align='center'>$r[name]</td><td align='center'>$r[phone]</td><td  align='center'>$group</td><td  align='center'>$r[ip]</td><td  align='center'>$da - $ga</td>";
+			echo "</tr>";
+		}
 		echo "<tr bgcolor=\"white\">";
 		echo "<td colspan=\"10\" align='center'><input type=\"submit\" class=\"click\" value=\"שלח\" name=\"submit\"></td>";
 		echo "</tr>";
@@ -121,13 +120,13 @@ END;
 				echo "<a href=\"?act=members&page=$npage\">דף הבא</a>";
 			}
 		}
-	echo "</div>";
+		echo "</div>";
 	}
 
 	function mem_add()
 	{
-	    include "../../conf.php";
-echo<<<END
+		include "../../conf.php";
+		echo <<<END
 	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#d0e5a3;color:#5f8806'>
 	<tr>
 	<td align='right' style='font-size:16px;'><font color='black'>אדמינים וצוות האתר:</font> <b>הוספת משתמש</b></td>
@@ -138,13 +137,13 @@ echo<<<END
 END;
 		function add_form()
 		{
-		    include "../../conf.php";
-		if ($_SESSION["ad_group"] == 1) {
-		$option = '<tr><td align="right"><font size="3" face="arial" color="000000"><b>רמת הרשאה: </b></font></td><td align="right"><select name="group"><option value="1">מנהל</option><option value="2" selected>עובד</option></td></tr>';
-		} else {
-		$option = "<input type='hidden' name='group' value='2'>";
-		}
-		echo <<<END
+			include "../../conf.php";
+			if ($_SESSION["ad_group"] == 1) {
+				$option = '<tr><td align="right"><font size="3" face="arial" color="000000"><b>רמת הרשאה: </b></font></td><td align="right"><select name="group"><option value="1">מנהל</option><option value="2" selected>עובד</option></td></tr>';
+			} else {
+				$option = "<input type='hidden' name='group' value='2'>";
+			}
+			echo <<<END
 		<form method="post" action="?act=members&do=add">
 		<table>
 			<tr>
@@ -207,32 +206,33 @@ END;
 		</form> 
 END;
 		}
-		
-		if (isset($_POST[submit])) {
-			$user = $_POST[user];
-			$pass =md5($_POST[pass]);
-			$email = $_POST[email];
-			$group = $_POST[group];
-			$kidomet = $_POST[kidomet];
-			$phone = $_POST[phone];
-			$name = $_POST[name];
+		$reg = "";
+		$error = "";
+		if (isset($_POST['submit'])) {
+			$user = $_POST['user'];
+			$pass = md5($_POST['pass']);
+			$email = $_POST['email'];
+			$group = $_POST['group'];
+			$kidomet = $_POST['kidomet'];
+			$phone = $_POST['phone'];
+			$name = $_POST['name'];
 			if (empty($user) || empty($pass) || empty($email) || empty($phone) || empty($kedomet) || empty($name)) {
 				$error = "<font color='red'>אנא מלא את כל שדות הטופס</font>";
 			} else {
-				$res = mysqli_query($link,"SELECT id FROM members WHERE `user` = '$user'");
+				$res = mysqli_query($link, "SELECT id FROM members WHERE `user` = '$user'");
 				if (mysqli_num_rows($res) == 0) {
-					$res = mysqli_query($link,"SELECT id FROM members WHERE `email` = '$email'");
+					$res = mysqli_query($link, "SELECT id FROM members WHERE `email` = '$email'");
 					if (mysqli_num_rows($res) == 0) {
 
-		$_POST["phone"] = $_POST["kidomet"]."-".$_POST["phone"];
+						$_POST["phone"] = $_POST["kidomet"] . "-" . $_POST["phone"];
 
-						mysqli_query($link,"INSERT INTO `members` ( `ip`, `user` ,`pass` ,`email` ,`name` ,`phone` ,`group` , `joindate` ) VALUES ('{$_SERVER[REMOTE_ADDR]}', '$user', '$pass', '$email', '$name', '$phone', '$group', UNIX_TIMESTAMP())");
-						if (mysqli_insert_id()) {
-							$reg ="OK";
+						mysqli_query($link, "INSERT INTO `members` ( `ip`, `user` ,`pass` ,`email` ,`name` ,`phone` ,`group` , `joindate` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$user', '$pass', '$email', '$name', '$phone', '$group', UNIX_TIMESTAMP())");
+						if ($mysqli->insert_id) {
+							$reg = "OK";
 							$error = "הוספת המשתמש בוצעה בהצלחה";
 							$log = "<u>יצירת משתמש:</u> $user";
 							$user = $_SESSION["ad_user"];
-							mysqli_query($link,"INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER[REMOTE_ADDR]}', '$log', '$user', UNIX_TIMESTAMP(), '3')");
+							mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$user', UNIX_TIMESTAMP(), '3')");
 						} else {
 							$error = "אירעה שגיאה במהלך הרישום, אנה נסה שנית";
 						}
@@ -252,18 +252,18 @@ END;
 			echo "<div align=\"center\">";
 			echo $error;
 			echo "</div>";
-			add_form();	
+			add_form();
 		}
-	echo "</div>";
+		echo "</div>";
 	}
 
 	function mem_edit()
 	{
-	    include "../../conf.php";
+		include "../../conf.php";
 		$id = $_POST['edit'];
-		$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
+		$res = mysqli_query($link, "SELECT * FROM members WHERE `id` = '$id'");
 		$r = mysqli_fetch_array($res);
-echo<<<END
+		echo <<<END
 	<table cellpadding='4' cellspacing='0' width='100%' style='border:1px solid #5f8806;background-color:#d0e5a3;color:#5f8806'>
 	<tr>
 	<td align='right' style='font-size:16px;'><font color='black'>אדמינים וצוות האתר:</font> <b>רשימת משתמשים</b></td>
@@ -273,7 +273,7 @@ echo<<<END
 
 		<table dir="rtl" width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
-			<td valign="top" class="tile">עריכת משתמש {$r[user]}</td> {$r[id]},,,, {$r[name]},,,,
+			<td valign="top" class="tile">עריכת משתמש {$r['user']}</td> {$r['id']},,,, {$r['name']},,,,
 		</tr>
 		</table>
 
@@ -282,14 +282,14 @@ echo<<<END
 
 
 		<form method="post" action="?act=members&do=edit">
-		<input type='hidden' name='edit' value='{$r[id]}'>
+		<input type='hidden' name='edit' value='{$r['id']}'>
 		<table>
 			<tr>
 				<td align="right">
 					<font size="3" face="arial" color="000000"><b>שם משתמש: </b></font>
 				</td>
 				<td align="right">
-					<input type="text" name="user" value="{$r[user]}">
+					<input type="text" name="user" value="{$r['user']}">
 				</td>
 			</tr>
 			<tr>
@@ -305,7 +305,7 @@ echo<<<END
 					<font size="3" face="arial" color="000000"><b>אימייל: </b></font>
 				</td>
 				<td align="right">
-					<input type="text" name="email" value="{$r[email]}">
+					<input type="text" name="email" value="{$r['email']}">
 				</td>
 			</tr>
 			<tr>
@@ -313,7 +313,7 @@ echo<<<END
 					<font size="3" face="arial" color="000000"><b>שם פרטי: </b></font>
 				</td>
 				<td align="right">
-					<input type="text" name="name" value="{$r[name]}">
+					<input type="text" name="name" value="{$r['name']}">
 				</td>
 			</tr>
 			<tr>
@@ -321,7 +321,7 @@ echo<<<END
 					<font size="3" face="arial" color="000000"><b>פלאפון: </b></font>
 				</td>
 				<td align="right">
-<input type='text' class='forminput' name='phone' maxlength='12' style='text-align:left;border:1px solid #d1d1d1;direction:ltr' onKeyPress='return isNumberKey(event)' value="{$r[phone]}">
+<input type='text' class='forminput' name='phone' maxlength='12' style='text-align:left;border:1px solid #d1d1d1;direction:ltr' onKeyPress='return isNumberKey(event)' value="{$r['phone']}">
 </td></tr>
 			<tr>
 				<td align="right">
@@ -330,9 +330,13 @@ echo<<<END
 				<td align="right">
 					<select name='group'>
 END;
-if($r[group] == 1) { 	echo "<option value='1'>מנהל</option><option value='2'>עובד</option>"; }
-if($r[group] == 2) { 	echo "<option value='2'>עובד</option><option value='1'>מנהל</option>"; }
-echo <<<END
+		if ($r['group'] == 1) {
+			echo "<option value='1'>מנהל</option><option value='2'>עובד</option>";
+		}
+		if ($r['group'] == 2) {
+			echo "<option value='2'>עובד</option><option value='1'>מנהל</option>";
+		}
+		echo <<<END
 				</td>			
 			</tr>			
 			<tr>
@@ -345,27 +349,27 @@ END;
 		function edit_form()
 		{
 
-include "../../conf.php";
+			include "../../conf.php";
 
-		// $id = $_POST[edit];
+			// $id = $_POST[edit];
 
-//$id = $_POST['edit'];
-//		$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
-		//$r = mysqli_fetch_array($res);
+			//$id = $_POST['edit'];
+			//		$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
+			//$r = mysqli_fetch_array($res);
 
-		//$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
-		//$r = mysqli_fetch_array($res);
-		echo <<<END
+			//$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
+			//$r = mysqli_fetch_array($res);
+			echo <<<END
 
 		<form method="post" action="?act=members&do=edit">
-		<input type='hidden' name='edit' value='{$r[id]}'>
+		<input type='hidden' name='edit' value='{$r['id']}'>
 		<table>
 			<tr>
 				<td align="right">
 					<font size="3" face="arial" color="000000"><b>שם משתמש: </b></font>
 				</td>
 				<td align="right">
-					<input type="text" name="user" value="{$r[user]}">
+					<input type="text" name="user" value="{$r['user']}">
 				</td>
 			</tr>
 			<tr>
@@ -381,7 +385,7 @@ include "../../conf.php";
 					<font size="3" face="arial" color="000000"><b>אימייל: </b></font>
 				</td>
 				<td align="right">
-					<input type="text" name="email" value="{$r[email]}">
+					<input type="text" name="email" value="{$r['email']}">
 				</td>
 			</tr>
 			<tr>
@@ -389,7 +393,7 @@ include "../../conf.php";
 					<font size="3" face="arial" color="000000"><b>שם פרטי: </b></font>
 				</td>
 				<td align="right">
-					<input type="text" name="name" value="{$r[name]}">
+					<input type="text" name="name" value="{$r['name']}">
 				</td>
 			</tr>
 			<tr>
@@ -397,7 +401,7 @@ include "../../conf.php";
 					<font size="3" face="arial" color="000000"><b>פלאפון: </b></font>
 				</td>
 				<td align="right">
-<input type='text' class='forminput' name='phone' maxlength='12' style='text-align:left;border:1px solid #d1d1d1;direction:ltr' onKeyPress='return isNumberKey(event)' value="{$r[phone]}">
+<input type='text' class='forminput' name='phone' maxlength='12' style='text-align:left;border:1px solid #d1d1d1;direction:ltr' onKeyPress='return isNumberKey(event)' value="{$r['phone']}">
 </td></tr>
 			<tr>
 				<td align="right">
@@ -406,9 +410,13 @@ include "../../conf.php";
 				<td align="right">
 					<select name='group'>
 END;
-if($r[group] == 1) { 	echo "<option value='1'>מנהל</option><option value='2'>עובד</option>"; }
-if($r[group] == 2) { 	echo "<option value='2'>עובד</option><option value='1'>מנהל</option>"; }
-echo <<<END
+			if ($r['group'] == 1) {
+				echo "<option value='1'>מנהל</option><option value='2'>עובד</option>";
+			}
+			if ($r['group'] == 2) {
+				echo "<option value='2'>עובד</option><option value='1'>מנהל</option>";
+			}
+			echo <<<END
 				</td>			
 			</tr>			
 			<tr>
@@ -419,50 +427,50 @@ echo <<<END
 END;
 		}
 
-		if (isset($_POST[submit]) && $_POST[submit] == "ערוך") {
-			$id = $_POST[edit];
-			$res = mysqli_query($link,"SELECT * FROM members WHERE id='$id' ");
+		if (isset($_POST['submit']) && $_POST['submit'] == "ערוך") {
+			$id = $_POST['edit'];
+			$res = mysqli_query($link, "SELECT * FROM members WHERE id='$id' ");
 			$r = mysqli_fetch_array($res);
 			$false = false;
 			// work or admin
-			if ($_SESSION[ad_group] != 1 && $_SESSION[ad_user] != $r[user]) {
-				$error = "<font color='red'>אין לך הרשאות</font>";	
+			if ($_SESSION['ad_group'] != 1 && $_SESSION['ad_user'] != $r['user']) {
+				$error = "<font color='red'>אין לך הרשאות</font>";
 				$false = true;
-			} 
+			}
 			// vars
-			$id = $r[id];
-			$user = $_POST[user];
-			$pass = $_POST[pass];
-			$email = $_POST[email];
-			$group = $_POST[group];
-			$name = $_POST[name];
-			$phone = $_POST[phone];
+			$id = $r['id'];
+			$user = $_POST['user'];
+			$pass = $_POST['pass'];
+			$email = $_POST['email'];
+			$group = $_POST['group'];
+			$name = $_POST['name'];
+			$phone = $_POST['phone'];
 			//vars
 			// if x else y
-			if ($user == $r[user]) { 
-			$user = $r[user];
-			$uk = "ok";
+			if ($user == $r['user']) {
+				$user = $r['user'];
+				$uk = "ok";
 			}
 			if (empty($pass)) {
-			$pass = $r[pass];
+				$pass = $r['pass'];
 			} else {
- 			$pass = md5($_POST[pass]);
+				$pass = md5($_POST['pass']);
 			}
-			if ($email == $r[email]) {
-			$email = $r[email];
-			$ek = "ok";
+			if ($email == $r['email']) {
+				$email = $r['email'];
+				$ek = "ok";
 			}
 			// if x eles y
 			// check if exist email & user in our system
 			if ($ek != "ok") {
-				$tes = mysqli_query($link,"SELECT id FROM members WHERE email='$email'");
+				$tes = mysqli_query($link, "SELECT id FROM members WHERE email='$email'");
 				if (mysqli_num_rows($tes) > 0) {
 					$error = "<font color='red'>אימייל זה תפוס אנה בחר אימייל שונה</font>";
 					$false = true;
 				}
 			}
 			if ($uk != "ok") {
-				$tes = mysqli_query($link,"SELECT id FROM members WHERE user='$user'");
+				$tes = mysqli_query($link, "SELECT id FROM members WHERE user='$user'");
 				if (mysqli_num_rows($tes) > 0) {
 					$error = "<font color='red'>שם משתמש זה תפוס אנה בחר שם אחר</font>";
 					$false = true;
@@ -472,26 +480,26 @@ END;
 
 			// end check
 			if ($false == false) {
-			// start update
+				// start update
 				if (empty($user) || empty($pass) || empty($email)) {
 					$error = "<font color='red'>אנא מלא את כל שדות הטופס</font>";
 				} else {
-						mysqli_query($link,"UPDATE `members` SET `user` = '$user' WHERE `id` = $id ");
-						mysqli_query($link,"UPDATE `members` SET `email` = '$email' WHERE `id` = $id ");
-						mysqli_query($link,"UPDATE `members` SET `pass` = '$pass' WHERE `id` = $id ");
-						mysqli_query($link,"UPDATE `members` SET `group` = '$group' WHERE `id` = $id ");
-						mysqli_query($link,"UPDATE `members` SET `name` = '$name' WHERE `id` = '$id' ");
-						mysqli_query($link,"UPDATE `members` SET `phone` = '$phone' WHERE `id` = '$id' ");
+					mysqli_query($link, "UPDATE `members` SET `user` = '$user' WHERE `id` = $id ");
+					mysqli_query($link, "UPDATE `members` SET `email` = '$email' WHERE `id` = $id ");
+					mysqli_query($link, "UPDATE `members` SET `pass` = '$pass' WHERE `id` = $id ");
+					mysqli_query($link, "UPDATE `members` SET `group` = '$group' WHERE `id` = $id ");
+					mysqli_query($link, "UPDATE `members` SET `name` = '$name' WHERE `id` = '$id' ");
+					mysqli_query($link, "UPDATE `members` SET `phone` = '$phone' WHERE `id` = '$id' ");
 
-						$error = "עריכת המשתמש בוצעה בהצלחה";
-						$edit = "OK";
-						$log = "<u>עריכת משתמש:</u> $user";
-						$user = $_SESSION["ad_user"];
-						mysqli_query($link,"INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER[REMOTE_ADDR]}', '$log', '$user', UNIX_TIMESTAMP(), '2')");
+					$error = "עריכת המשתמש בוצעה בהצלחה";
+					$edit = "OK";
+					$log = "<u>עריכת משתמש:</u> $user";
+					$user = $_SESSION["ad_user"];
+					mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$user', UNIX_TIMESTAMP(), '2')");
 				}
 			}
 		}
-		
+
 		if ($edit == "OK") {
 			echo "<div align=\"center\">";
 			echo $error;
@@ -500,15 +508,15 @@ END;
 			echo "<div align=\"center\">";
 			echo $error;
 			echo "</div>";
-			edit_form();	
+			edit_form();
 		}
-	echo "</div>";
+		echo "</div>";
 	}
 
 	function mem_delete()
 	{
-include "../../conf.php";
-echo<<<END
+		include "../../conf.php";
+		echo <<<END
 		<table dir="rtl" width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td valign="top" class="tile">מחיקת משתמש</td>
@@ -516,24 +524,24 @@ echo<<<END
 		</table>
 		<div dir="rtl">
 END;
-		$error = (empty($_POST[edit])) ? "אנה בחר משתמש" : "";
+		$error = (empty($_POST['edit'])) ? "אנה בחר משתמש" : "";
 		if (empty($error)) {
-		$id = $_POST[edit];
-		$ues = mysqli_query($link,"SELECT user FROM members WHERE `id` = '$id'");
-		$u = mysqli_fetch_array($ues);
-		$userd = $u[user];
-		$log = "<u>מחיקת משתמש:</u> $userd";
-		$user = $_SESSION["ad_user"];
-		mysqli_query($link,"INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER[REMOTE_ADDR]}', '$log', '$user', UNIX_TIMESTAMP(), '3')");
-		mysqli_query($link,"DELETE FROM `members` WHERE `id` = '$id' ");
-		echo "<div align=\"center\">";
-		echo " המשתמש $userd נמחק בהצלחה!";
-		echo "</div>";
+			$id = $_POST['edit'];
+			$ues = mysqli_query($link, "SELECT user FROM members WHERE `id` = '$id'");
+			$u = mysqli_fetch_array($ues);
+			$userd = $u['user'];
+			$log = "<u>מחיקת משתמש:</u> $userd";
+			$user = $_SESSION["ad_user"];
+			mysqli_query($link, "INSERT INTO `adminslog` ( `ip`, `text` ,`user` , `date`, `img` ) VALUES ('{$_SERVER['REMOTE_ADDR']}', '$log', '$user', UNIX_TIMESTAMP(), '3')");
+			mysqli_query($link, "DELETE FROM `members` WHERE `id` = '$id' ");
+			echo "<div align=\"center\">";
+			echo " המשתמש $userd נמחק בהצלחה!";
+			echo "</div>";
 		} else {
-		echo "<div align=\"center\">";
-		echo $error;
-		echo "</div>";
+			echo "<div align=\"center\">";
+			echo $error;
+			echo "</div>";
 		}
-	echo "</div>";
+		echo "</div>";
 	}
-?>
+	?>

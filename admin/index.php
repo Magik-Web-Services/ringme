@@ -5,6 +5,8 @@ define('_MATAN', 1);
 // if (!isset($_SESSION["ad_login"])) {
 //   header('location: ../admin.php');
 // }
+session_start();
+$_SESSION['ad_user'] = 'admin';
 
 // include
 include("../conf.php");
@@ -12,7 +14,7 @@ require '../meta.php';
 $meta = new meta;
 
 // Meta
-$act = $_GET['act'];
+$act = (isset($_GET['act']) && !empty($_GET['act'])) ? $_GET['act'] : '';
 $title = $meta->getAdminPageTitle($act);
 
 if ($_SESSION['ad_user'] == "admin") {

@@ -26,9 +26,8 @@ die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתו�
 defined('_MATAN');
 if ($_SESSION["ad_group"] != 1)
 die("אין לך גישה, אנה פנה למנהל שלך על מנת לפתור בעיה זו");
-$do = $_GET['do'];
-switch($do)
-{	
+$do = (isset($_GET['do']) && !empty($_GET['do'])) ? $_GET['do'] : '';
+switch ($do) {	
 	case 'add':
 		group_add();
 		break;
@@ -123,7 +122,8 @@ END;
 		</form> 
 END;
 		}
-		
+		$reg = '';
+		$error = '';
 		if (isset($_POST['submit'])) {
 			$name = $_POST['name'];
 			$perfix = htmlentities(trim($_POST['perfix']));

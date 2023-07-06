@@ -20,9 +20,11 @@ $code = "CLIENT{$code}";
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset; ?>" />
-	<title><?php echo $title; ?></title>
-	<meta name="keywords" content="<?= $keywords ?>" />
-	<meta name="description" content="<?= $description ?>" />
+	<title>
+		<?php echo $title; ?>
+	</title>
+	<!-- <meta name="keywords" content="<?= $keywords ?>" /> -->
+	<!-- <meta name="description" content="<?= $description ?>" /> -->
 	<meta name="robot" content="index,follow">
 	<meta name="distribution" content="global" />
 	<!-- <link rel="stylesheet" type="text/css" href="style/ad_style.css" /> -->
@@ -101,6 +103,7 @@ function login()
 		
 	  </td>
 	  
+	  
 	  <td style="padding-top: 20px; padding-right: 13px;">
 	  		<input name="submit" type="hidden" value="submit" />
 			<input type="image" src="admin/imagesadmin/hez.gif" />
@@ -115,6 +118,8 @@ END;
 	}
 	// Check if logged
 	session_start();
+	$login = "";
+	$msg = "";
 	include("conf.php");
 	if (isset($_SESSION["ad_login"])) {
 		$login = "<img src=\"images/logo.png\"><br />";
