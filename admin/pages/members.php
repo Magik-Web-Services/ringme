@@ -478,7 +478,8 @@ END;
 				}
 			}
 
-
+			$edit = "";
+			$error = "";
 			// end check
 			if ($false == false) {
 				// start update
