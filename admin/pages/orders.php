@@ -182,13 +182,13 @@ END;
 END;
 		$error = (empty($_POST['Del'])) ? "אנה בחר בקשה" : "";
 		if (empty($error)) {
-			$id = $_POST['Del'];
+			$id =  (isset($_POST['Del']) && !empty($_POST['Del'])) ? $_POST['Del'] : '1';
 			$delete_id = implode(",", $id);
-			$ues = mysqli_query($link, "SELECT * FROM orders WHERE `id` = '$id'");
-			$u = mysqli_fetch_array($ues);
+			// $ues = mysqli_query($link, "SELECT * FROM `orders` WHERE `id` = '$id'");
+			// $u = mysqli_fetch_array($ues);
 
 			$ids = $_POST['del'];
-			$uess = mysqli_query($link, "SELECT * FROM orders WHERE `id` = '$ids'");
+			$uess = mysqli_query($link, "SELECT * FROM `orders` WHERE `id` = '$ids'");
 			$us = mysqli_fetch_array($uess);
 			$songd = $us['song'];
 			$log = "מחק את הבקשה: <u>{$songd}</u>";
@@ -200,7 +200,7 @@ END;
 			mysqli_query($link, "UPDATE `members` SET `ip` = '{$_SERVER['REMOTE_ADDR']}' WHERE `user` = '$users' ");
 
 			mysqli_query($link, "DELETE FROM `orders` WHERE `id` IN (" . $delete_id . ")");
-			redirect_user("orders.php", "הבקשה נמחקה בהצלחה!");
+			// redirect_user("orders.php", "הבקשה נמחקה בהצלחה!");
 		} else {
 			echo "<div align=\"center\">";
 			echo $error;

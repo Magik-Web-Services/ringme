@@ -202,7 +202,7 @@ END;
 	function cat_edit()
 	{
 		include "../../conf.php";
-		$id = $_GET['id'];
+		$id =(isset($_GET['id']) && !empty($_GET['id'])) ? $_GET['id'] : '1';;
 		$res = mysqli_query($link, "SELECT name FROM category WHERE `id` = '$id'");
 		$r = mysqli_fetch_array($res);
 		echo <<<END
@@ -238,7 +238,8 @@ END;
 		</form> 
 END;
 		}
-
+		$edit = "";
+		$error = "";
 		if (isset($_POST['submit']) && $_POST['submit'] == "ערוך") {
 			$id = $_POST['edit'];
 			$res = mysqli_query($link, "SELECT * FROM category WHERE id='$id' ");

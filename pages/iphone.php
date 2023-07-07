@@ -102,13 +102,13 @@ if ($sendup == "0") {
         <div class="icons">
           <div class="play">
             <audio>
-              <source src="./{$r['url']}" type="audio/mpeg">
+              <source src="../{$r['url']}" type="audio/mpeg">
             </audio>
-            <img src="./img/svg/play.svg" alt="נגן">
+            <img src="../img/svg/play.svg" alt="נגן">
           </div>
           <div class="download">
-            <a href="./song-{$r['id']}.html"{$popup}>
-              <img src="./img/svg/download.svg" alt="הורד">
+            <a href="../song-{$r['id']}.html"{$popup}>
+              <img src="../img/svg/download.svg" alt="הורד">
             </a>
           </div>
         </div>

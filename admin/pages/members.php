@@ -351,14 +351,14 @@ END;
 
 			include "../../conf.php";
 
-			// $id = $_POST[edit];
+			$id = $_POST['edit'];
 
-			//$id = $_POST['edit'];
-			//		$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
-			//$r = mysqli_fetch_array($res);
+			$id = $_POST['edit'];
+					$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
+			$r = mysqli_fetch_array($res);
 
-			//$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
-			//$r = mysqli_fetch_array($res);
+			$res = mysqli_query($link,"SELECT * FROM members WHERE `id` = '$id'");
+			$r = mysqli_fetch_array($res);
 			echo <<<END
 
 		<form method="post" action="?act=members&do=edit">
@@ -426,7 +426,8 @@ END;
 		</form> 
 END;
 		}
-
+		$edit = "";
+		$error = "";
 		if (isset($_POST['submit']) && $_POST['submit'] == "ערוך") {
 			$id = $_POST['edit'];
 			$res = mysqli_query($link, "SELECT * FROM members WHERE id='$id' ");

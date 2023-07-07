@@ -444,7 +444,8 @@ END;
 		</form> 
 END;
 
-
+		$edit = "";
+		$error = "";
 
 		if (isset($_POST['submit']) && $_POST['submit'] == "ערוך") {
 			$id = $_POST['edit'];
@@ -494,7 +495,7 @@ END;
 	function singer_delete()
 	{
 		include "../../conf.php";
-		$id = $_GET['id'];
+		$id = (isset($_GET['id']) && !empty($_GET['id'])) ? $_GET['id'] : '1';
 		echo <<<END
 		<table dir="rtl" width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
@@ -508,7 +509,7 @@ END;
 			$ues = mysqli_query($link, "SELECT * FROM singers WHERE `id` = '$id'");
 			$u = mysqli_fetch_array($ues);
 			$named = $u['name'];
-			$art = $u['artist'];
+			$art = $u['commesnt'];
 			$namedd = $named . " - " . $art;
 			$log = "<u>מחיקת זמר:</u> $named - $art";
 			$user = $_SESSION["ad_user"];

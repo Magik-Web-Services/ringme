@@ -742,7 +742,7 @@ END;
 			$filename = '../../' . $r['url'];
 			$getID3 = new getID3;
 			$file = $getID3->analyze($filename);
-			$secc = gmdate("s", $Afile);
+			$secc = gmdate( $Afile);
 
 			echo "
 <tr bgcolor='{$urikascolor}' onMouseOver='this.bgColor=\"#f4f4f4\"' onMouseOut='this.bgColor=\"{$urikascolor}\"'>
@@ -1416,7 +1416,7 @@ END;
 	function sng_delete()
 	{
 		include "../../conf.php";
-		$id = $_GET['id'];
+		$id = (isset($_GET['act']) && !empty($_GET['act'])) ? $_GET['act'] : '';;
 		$error = (empty($id)) ? "אנא בחר צלצול" : "";
 		if (empty($error)) {
 			$ues = mysqli_query($link, "SELECT * FROM songs WHERE `id` = '$id'");

@@ -63,7 +63,7 @@ if ($sendup == "0") {
     $res = mysqli_query($link, "SELECT * FROM `songs` WHERE `catid`='$catid' ORDER BY `id` DESC LIMIT $i,$limit ");
 
     if ($cpage > $pages) {
-      header('Location: https://www.ringme.co.il');
+      // header('Location: https://www.ringme.co.il');
     } else {
 
       while ($r = mysqli_fetch_array($res)) {
